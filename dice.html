@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<title>Dice Roller</title>
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+  <!-- CSS Styles -->
+<style>
+	/*Background Image*/
+
+   body {
+    padding: 20px;
+    background-image: url(https://img.freepik.com/free-vector/green-tones-gradient-background_52683-29042.jpg);
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    }
+
+/*===CLOSED===*/
+
+</style>
+
+</head>
+<body>
+
+<!-- This is rolling the 6 sided dice -->
+<div class="text-center">
+	 <button type="button" onclick="rollDice()">
+        <!-- With this button, it's calling the function made in JAVA to then run and generate an image and text -->
+	 	Roll 6 Sided Dice
+	 </button>
+
+    <button type="button" onclick="resetDice()">
+        <!-- This is the button to then run the alert in JAVA to let the user know to roll the dice and generate text to say the dice did not roll and claer any images -->
+    	Don't Roll The Dice
+    </button>
+    <div>
+
+    <!-- Image for 6 sided dice -->
+
+    <img id="pic" src=""> 
+    <!-- This is where the picture in Java will produce, it has to be empty for it generate the correct image. -->
+    <h1 id="word"></h1>
+    <!-- This is to display text when after hitting the reset button and telling you the number you got when rolled -->
+
+    <!-- Image for 6 sided dice -->
+    </div>
+</div>
+
+<!--====== Closing for the 6 sided dice ======-->
+
+
+
+<!--======= 12 Sided dice roll =======-->
+<div class="text-center">
+	<button type="button" onclick="rollDice2()">
+	 	Roll 12 Sided Dice
+	 </button>
+
+    <button type="button" onclick="resetDice2()">
+    	Don't Roll The Dice
+    </button>
+
+    <div>
+<!-- Images and text for the 12 sided dice -->
+        <img id="pic1" src="">
+        <img id="pic2" src="">
+        <h1 id="word1" ></h1>
+<!-- Closing the images and text for the dice -->
+    </div>
+</div>
+
+
+
+
+
+    <!-- JAVASCRIPT CODE -->
+        <script type="text/javascript">
+
+
+
+//============================= 6 Sided dice ============================= //
+       // What the dice is doing //
+// With this formula here, has a variable randomly picking a number between 1-6 //
+        function rollDice() {
+            var ranNumber = Math.floor(Math.random() * 6) + 1;
+
+        // IF, ELSE IF STATEMENTS (NOT USED) // 
+        // if (ranNumber == 1) {
+        //     document.getElementById('pic').src = 'pic1.jpg';
+        // }
+        // else if (ranNumber == 2) {
+        //     document.getElementById('pic').src = 'pic2.jpg';
+        // }
+        // else if (ranNumber == 3) {
+        //     document.getElementById('pic').src = 'pic3.jpg';
+        // }
+        // else if (ranNumber == 4) {
+        //     document.getElementById('pic').src = 'pic4.jpg';
+        // }
+        // else if (ranNumber == 5) {
+        //     document.getElementById('pic').src = 'pic5.jpg';
+        // }
+        // else if (ranNumber == 6) {
+        //     document.getElementById('pic').src = 'pic6.jpg';
+        // }
+        // CLOSING IF ELSE IF STATEMENTS (NOT USED) //
+
+
+        //------------- SHORTER METHOD -------------//
+
+ // With the code below, it is going to execute code when pressed. I assigned it by using an ID and when pressed is calling to that ID I have set up for it to then do as I have below. //
+            document.getElementById('pic').src = 'pic' + ranNumber + '.jpg'; //This is for generating my random images. The images are called "pic1.jpg" so by using the random number to generate which image I need. //
+            document.getElementById('word').innerHTML = 'You rolled: ' + ranNumber; //This is the text to generate after the image to display the number I have rolled//
+
+        }
+        // closing the rolling button //
+
+       
+		// Resetting the picture displayed // 
+        //This function is to reset the dice and alert the user to then roll the dice to generate any content //
+        function resetDice() {
+            alert("Please roll the dice");//This is what alerts the user when pressed//
+            document.getElementById('pic').src = '';//This is to clear the images generated if pressed before//
+            document.getElementById('word').innerHTML = 'Dice not rolled';//This is simple text to say the dice was not rolled// 
+        }
+//============================= closing 6 sided dice =============================// 
+
+// ============================= 12 sided dice ============================= //
+        
+// First & Second dice rolling //
+        function rollDice2() {
+        	var ranNumber2 = Math.floor(Math.random() * 6) + 1;
+        	var ranNumber3 = Math.floor(Math.random()* 6) + 1;
+
+        	document.getElementById('pic1').src = 'pic' + ranNumber2 + '.jpg';
+            document.getElementById('word1').innerHTML = 'You rolled: ' + ranNumber2 + ' and ' +ranNumber3;
+            document.getElementById('pic2').src = 'pic' + ranNumber3 + '.jpg';
+        }
+// First & Second dice close //
+        function resetDice2() {
+            alert("Please roll the dice");
+            document.getElementById('pic1').src = '';
+            document.getElementById('pic2').src = '';
+            document.getElementById('word1').innerHTML = 'Dice not rolled';
+        }
+
+
+// ============================= closing 12 sided dice ============================= //
+
+    </script>
+
+
+
+<!-- NAV BAR -->
+<nav class="navbar fixed-bottom navbar-dark bg-dark">
+  <a class="navbar-brand" href="index.html"><i class="bi bi-house h1"></i></a>
+  <a class="navbar-brand" href="dice.html"><i class="bi bi-dice-3 h1"></i></a>
+  <a class="navbar-brand" href="tipCalculator.html"><i class="bi bi-cash-stack h1"></i></a>
+  <a class="navbar-brand" href="Calculator1.html"><i class="bi bi-calculator h1"></i></a>
+</nav>
+<!-- NAV BAR CLOSE -->
+
+</body>
+</html>
